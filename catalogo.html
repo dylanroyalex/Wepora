@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Catálogo completo de joyería artesanal Wepora."
+    >
+
+    <title>Catálogo | Wepora</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="img/favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="estilos.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =====================================
+         ENCABEZADO
+    ====================================== -->
+
+    <header class="encabezado">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="img/logo2.png"
+                alt="Wepora"
+                class="logo-tema"
+            >
+
+        </a>
+
+
+        <nav
+            class="navegacion"
+            id="navegacion"
+        >
+
+            <a href="index.html#coleccion">
+                Colección
+            </a>
+
+            <a href="index.html#personaliza">
+                Personaliza
+            </a>
+
+            <a href="index.html#wepora">
+                Wepora
+            </a>
+
+            <a href="index.html#esmeraldas">
+                Esmeraldas
+            </a>
+
+            <a href="index.html#contacto">
+                Contacto
+            </a>
+
+        </nav>
+
+
+        <div class="controles-menu">
+
+            <!-- CARRITO -->
+
+            <button
+                class="boton-carrito"
+                id="botonCarrito"
+                aria-label="Abrir carrito"
+                title="Carrito"
+            >
+
+                🛒
+
+                <span
+                    class="contador-carrito"
+                    id="contadorCarrito"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+            <!-- MODO CLARO / OSCURO -->
+
+            <button
+                class="boton-tema"
+                id="botonTema"
+                aria-label="Cambiar a modo oscuro"
+                title="Cambiar a modo oscuro"
+            >
+                ☾
+            </button>
+
+
+            <!-- MENÚ MÓVIL -->
+
+            <button
+                class="boton-menu"
+                id="botonMenu"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         CARRITO
+    ====================================== -->
+
+    <aside
+        class="carrito"
+        id="carrito"
+        aria-label="Carrito de compras"
+    >
+
+        <div class="carrito-cabecera">
+
+            <h2>
+                TU CARRITO
+            </h2>
+
+            <button
+                class="cerrar-carrito"
+                id="cerrarCarrito"
+                aria-label="Cerrar carrito"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <div
+            class="carrito-productos"
+            id="carritoProductos"
+        ></div>
+
+
+        <div class="carrito-pie">
+
+            <div class="carrito-subtotal">
+
+                <span>
+                    SUBTOTAL
+                </span>
+
+                <strong id="carritoSubtotal">
+                    $0 COP
+                </strong>
+
+            </div>
+
+
+            <button
+                class="boton-finalizar"
+                id="botonFinalizar"
+            >
+                FINALIZAR COMPRA
+            </button>
+
+
+            <button
+                class="boton-vaciar"
+                id="botonVaciar"
+            >
+                VACIAR CARRITO
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <div
+        class="fondo-carrito"
+        id="fondoCarrito"
+    ></div>
+
+
+    <!-- =====================================
+         CONTENIDO DEL CATÁLOGO
+    ====================================== -->
+
+    <main>
+
+        <section
+            class="seccion coleccion"
+            id="catalogo"
+        >
+
+            <div class="encabezado-seccion">
+
+                <p class="etiqueta">
+                    WEPORA
+                </p>
+
+                <h1>
+                    CATÁLOGO COMPLETO
+                </h1>
+
+                <p>
+                    Descubre nuestra selección de
+                    piezas de joyería artesanal.
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 PRODUCTOS DESDE SUPABASE
+            ================================== -->
+
+            <div
+                class="catalogo"
+                id="catalogoProductos"
+            >
+
+                <!--
+                    Los productos se cargarán
+                    automáticamente desde Supabase.
+                -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================
+         VISOR DE IMÁGENES
+    ====================================== -->
+
+    <div
+        class="visor-imagen"
+        id="visorImagen"
+    >
+
+        <button
+            class="cerrar-visor"
+            id="cerrarVisor"
+            aria-label="Cerrar imagen"
+        >
+            ✕
+        </button>
+
+        <img
+            id="imagenAmpliada"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- =====================================
+         COMPRA
+    ====================================== -->
+
+    <section
+        class="contacto"
+        id="compra"
+    >
+
+        <div class="contacto-contenido animar">
+
+            <p class="etiqueta">
+                TU PRÓXIMA PIEZA
+            </p>
+
+            <h2>
+                ENCUENTRA ALGO<br>
+                ÚNICO PARA TI.
+            </h2>
+
+            <p>
+                ¿Encontraste una pieza que te gusta?
+                Agrégala al carrito y contáctanos
+                para continuar con tu compra.
+            </p>
+
+            <div class="contacto-botones">
+
+                <button
+                    class="boton-principal"
+                    type="button"
+                    onclick="document.getElementById('botonCarrito').click()"
+                >
+                    VER CARRITO
+                </button>
+
+                <a
+                    href="https://wa.me/573025848217"
+                    class="boton-outline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    WHATSAPP
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         PIE DE PÁGINA
+    ====================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            <img
+                src="img/logo2.png"
+                alt="Wepora"
+                class="logo-tema"
+            >
+
+        </div>
+
+        <p>
+            Joyería artesanal · Esmeraldas ·
+            Diseño personalizado
+        </p>
+
+        <p class="copyright">
+            © 2026 Wepora. Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================
+         SCRIPTS
+    ====================================== -->
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Configuración de Supabase -->
+    <script src="supabase.js"></script>
+
+    <!-- Lógica general del sitio -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Wepora - Joyería artesanal, esmeraldas y diseño personalizado."
+    >
+
+    <title>Wepora | Joyería artesanal</title>
+
+    <link
+        rel="icon"
+        type="image/ico"
+        href="img/favicon.ico"
+    >
+
+    <link
+        rel="stylesheet"
+        href="estilos.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         ENCABEZADO
+    ====================================== -->
+
+    <header class="encabezado">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="#inicio"
+            class="logo"
+        >
+
+            <img
+                src="img/logo2.png"
+                alt="Wepora"
+                class="logo-tema"
+            >
+
+        </a>
+
+
+
+        <!-- NAVEGACIÓN -->
+
+        <nav
+            class="navegacion"
+            id="navegacion"
+        >
+
+            <a href="#coleccion">
+                Colección
+            </a>
+
+            <a href="#personaliza">
+                Personaliza
+            </a>
+
+            <a href="#wepora">
+                Wepora
+            </a>
+
+            <a href="#esmeraldas">
+                Esmeraldas
+            </a>
+
+            <a href="#contacto">
+                Contacto
+            </a>
+
+        </nav>
+
+
+
+        <!-- CONTROLES -->
+
+        <div class="controles-menu">
+
+
+            <!-- CARRITO -->
+
+            <button
+                class="boton-carrito"
+                id="botonCarrito"
+                aria-label="Abrir carrito"
+                title="Carrito"
+            >
+
+                🛒
+
+                <span
+                    class="contador-carrito"
+                    id="contadorCarrito"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+
+            <!-- MODO OSCURO / CLARO -->
+
+            <button
+                class="boton-tema"
+                id="botonTema"
+                aria-label="Cambiar modo de color"
+                title="Cambiar modo de color"
+            >
+                ☾
+            </button>
+
+
+
+            <!-- MENÚ MÓVIL -->
+
+            <button
+                class="boton-menu"
+                id="botonMenu"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =====================================
+         CARRITO
+    ====================================== -->
+
+    <aside
+        class="carrito"
+        id="carrito"
+        aria-label="Carrito de compras"
+    >
+
+
+        <!-- CABECERA DEL CARRITO -->
+
+        <div class="carrito-cabecera">
+
+            <h2>
+                TU CARRITO
+            </h2>
+
+            <button
+                class="cerrar-carrito"
+                id="cerrarCarrito"
+                aria-label="Cerrar carrito"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCTOS -->
+
+        <div
+            class="carrito-productos"
+            id="carritoProductos"
+        >
+
+            <!-- JavaScript agregará aquí los productos -->
+
+
+        </div>
+
+
+
+        <!-- PIE DEL CARRITO -->
+
+        <div class="carrito-pie">
+
+
+            <div class="carrito-subtotal">
+
+                <span>
+                    SUBTOTAL
+                </span>
+
+                <strong id="carritoSubtotal">
+                    $0 COP
+                </strong>
+
+            </div>
+
+
+
+            <button
+                class="boton-finalizar"
+                id="botonFinalizar"
+            >
+                FINALIZAR COMPRA
+            </button>
+
+
+
+            <button
+                class="boton-vaciar"
+                id="botonVaciar"
+            >
+                VACIAR CARRITO
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- FONDO DEL CARRITO -->
+
+    <div
+        class="fondo-carrito"
+        id="fondoCarrito"
+    ></div>
+
+
+
+    <main>
+
+
+        <!-- =====================================
+             HERO
+        ====================================== -->
+
+        <section
+            class="hero"
+            id="inicio"
+        >
+
+
+            <div class="hero-imagen"></div>
+
+
+
+            <div class="hero-contenido">
+
+
+                <p class="hero-superior">
+                    JOYERÍA ARTESANAL · ESMERALDAS
+                </p>
+
+
+
+                <h1>
+                    WEPORA
+                </h1>
+
+
+
+                <p class="hero-descripcion">
+
+                    Piezas creadas para llevar contigo
+                    la esencia de una piedra y la identidad
+                    de quien la lleva.
+
+                </p>
+
+
+
+                <a
+                    href="#coleccion"
+                    class="boton-principal"
+                >
+                    DESCUBRIR COLECCIÓN
+                </a>
+
+
+            </div>
+
+
+
+            <div class="hero-scroll">
+
+                <span>
+                    Descubre Wepora
+                </span>
+
+                <span class="flecha">
+                    ↓
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             COLECCIÓN
+        ====================================== -->
+
+        <section
+            class="seccion coleccion"
+            id="coleccion"
+        >
+
+
+            <div class="encabezado-seccion">
+
+
+                <p class="etiqueta">
+                    NUESTRAS PIEZAS
+                </p>
+
+
+                <h2>
+                    COLECCIÓN
+                </h2>
+
+
+                <p>
+
+                    Diseños que combinan la artesanía
+                    con la belleza natural de las
+                    piedras preciosas.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="catalogo" id="catalogoProductos">
+    <!-- Productos cargados desde Supabase -->
+</div>
+			      
+				    <div class="catalogo-completo">
+
+                        <a
+                            href="catalogo.html"
+                            class="boton-catalogo"
+                        >
+                        CATÁLOGO COMPLETO
+                        </a>
+
+                    </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             PERSONALIZA
+        ====================================== -->
+
+        <section
+            class="seccion personaliza"
+            id="personaliza"
+        >
+
+
+            <div class="personaliza-imagen">
+
+
+                <img
+                    src="img/personaliza.webp"
+                    alt="Proceso de personalización de joyería"
+                    class="imagen-ampliable"
+                >
+
+
+            </div>
+
+
+
+            <div class="personaliza-contenido animar">
+
+
+                <p class="etiqueta">
+                    CREA ALGO ÚNICO
+                </p>
+
+
+
+                <h2>
+
+                    PERSONALIZA<br>
+                    TU JOYA
+
+                </h2>
+
+
+
+                <p>
+
+                    Tu idea puede convertirse en una
+                    pieza diseñada especialmente para ti.
+
+                </p>
+
+
+
+                <div class="proceso">
+
+
+                    <div class="paso animar">
+
+                        <span>
+                            01
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                IDEA
+                            </h3>
+
+                            <p>
+                                Cuéntanos qué quieres crear.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="paso animar">
+
+                        <span>
+                            02
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                DISEÑO
+                            </h3>
+
+                            <p>
+                                Construimos el concepto
+                                de tu pieza.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="paso animar">
+
+                        <span>
+                            03
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                PIEDRA
+                            </h3>
+
+                            <p>
+                                Seleccionamos la piedra adecuada.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="paso animar">
+
+                        <span>
+                            04
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                CREACIÓN
+                            </h3>
+
+                            <p>
+                                Transformamos la idea en una joya.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <a
+                    href="#contacto"
+                    class="boton-secundario"
+                >
+                    QUIERO PERSONALIZAR
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             WEPORA
+        ====================================== -->
+
+        <section
+            class="seccion sobre-wepora"
+            id="wepora"
+        >
+
+
+            <div class="sobre-contenido animar">
+
+
+                <p class="etiqueta">
+                    LA MARCA
+                </p>
+
+
+
+                <h2>
+                    WEPORA
+                </h2>
+
+
+
+                <p>
+
+                    Wepora nace de una visión que une
+                    la identidad, la artesanía y la
+                    belleza de las piedras preciosas.
+
+                </p>
+
+
+
+                <p>
+
+                    Cada pieza busca conectar el trabajo
+                    artesanal con la personalidad de quien
+                    decide llevarla.
+
+                </p>
+
+
+
+                <a href="wepora.html" class="boton-principal">
+                    CONOCE MÁS
+                </a>
+
+
+            </div>
+
+
+
+            <div class="sobre-imagen">
+
+
+                <img
+                    src="img/wepora.webp"
+                    alt="Wepora joyería artesanal"
+                    class="imagen-ampliable"
+                >
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             ESMERALDAS
+        ====================================== -->
+
+        <section
+            class="seccion esmeraldas"
+            id="esmeraldas"
+        >
+
+
+            <div class="esmeralda-imagen">
+
+
+                <img
+                    src="img/esmeralda.webp"
+                    alt="Esmeralda"
+                    class="imagen-ampliable"
+                >
+
+
+            </div>
+
+
+
+            <div class="esmeralda-contenido animar">
+
+
+                <p class="etiqueta">
+                    LA PIEDRA
+                </p>
+
+
+
+                <h2>
+                    ESMERALDAS
+                </h2>
+
+
+
+                <p>
+
+                    Una piedra reconocida por su color,
+                    rareza y belleza natural.
+
+                </p>
+
+
+
+                <p>
+
+                    En Wepora, la esmeralda ocupa un
+                    lugar central dentro de nuestra
+                    propuesta de joyería.
+
+                </p>
+
+
+
+                <div class="datos-esmeralda">
+
+
+                    <div class="dato-esmeralda">
+
+                        <span class="numero">
+                            01
+                        </span>
+
+                        <span>
+                            PIEDRA PRECIOSA
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="dato-esmeralda">
+
+                        <span class="numero">
+                            02
+                        </span>
+
+                        <span>
+                            BELLEZA NATURAL
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="dato-esmeralda">
+
+                        <span class="numero">
+                            03
+                        </span>
+
+                        <span>
+                            IDENTIDAD COLOMBIANA
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             CONTACTO
+        ====================================== -->
+
+        <section
+            class="contacto"
+            id="contacto"
+        >
+
+
+            <div class="contacto-contenido animar">
+
+
+                <p class="etiqueta">
+                    HABLEMOS
+                </p>
+
+
+
+                <h2>
+
+                    CREAMOS ALGO<br>
+                    ÚNICO.
+
+                </h2>
+
+
+
+                <p>
+
+                    ¿Tienes una idea para una joya?
+                    ¿Quieres conocer nuestra colección?
+
+                </p>
+
+
+
+      
+<div class="contacto-botones">
+
+    <!-- WhatsApp -->
+    <a
+        href="https://wa.me/573025848217"
+        class="boton-outline boton-red-social"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+        title="WhatsApp"
+    >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M20.52 3.48A11.8 11.8 0 0 0 12.13 0C5.6 0 .28 5.32.28 11.85c0 2.09.55 4.13 1.6 5.93L.18 24l6.37-1.67a11.85 11.85 0 0 0 5.58 1.42h.01c6.53 0 11.85-5.32 11.85-11.85a11.8 11.8 0 0 0-3.47-8.42ZM12.14 21.7a9.86 9.86 0 0 1-5.02-1.37l-.36-.21-3.78.99 1.01-3.69-.23-.38a9.83 9.83 0 1 1 8.38 4.66Zm5.4-7.37c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.28.3-1.05 1.02-1.05 2.49s1.08 2.89 1.23 3.09c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.63.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/>
+        </svg>
+    </a>
+
+    <!-- TikTok -->
+    <a
+        href="https://www.tiktok.com/@wepora.oficial"
+        class="boton-outline boton-red-social"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visitar TikTok de Wepora"
+        title="TikTok"
+    >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-4.22-4.88h-3.4v13.67a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6.05.88.14V9.25a6.4 6.4 0 1 0 5.42 6.32V8.6a8.2 8.2 0 0 0 4.8 1.54V6.75c-.2 0-.4-.02-.58-.06Z"/>
+        </svg>
+    </a>
+
+    <!-- Instagram -->
+    
+<a
+    href="https://www.instagram.com/wepora/"
+    class="boton-outline boton-red-social"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visitar Instagram de Wepora"
+    title="Instagram"
+>
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"
+                  fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4"
+                    fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.8" r="1.2" fill="currentColor"/>
+        </svg>
+    </a>
+
+</div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         VISOR DE IMÁGENES
+    ====================================== -->
+
+    <div
+        class="visor-imagen"
+        id="visorImagen"
+    >
+
+
+        <button
+            class="cerrar-visor"
+            id="cerrarVisor"
+            aria-label="Cerrar imagen"
+        >
+            ✕
+        </button>
+
+
+
+        <img
+            id="imagenAmpliada"
+            src=""
+            alt=""
+        >
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer>
+
+
+        <div class="footer-logo">
+
+
+            <img
+                src="img/logo2.png"
+                alt="Wepora"
+                class="logo-tema"
+            >
+
+
+        </div>
+
+
+
+        <p>
+
+            Joyería artesanal · Esmeraldas ·
+            Diseño personalizado
+
+        </p>
+
+
+
+        <div class="footer-line"></div>
+
+
+
+        <p class="copyright">
+
+            © 2026 Wepora. Todos los derechos reservados.
+
+        </p>
+
+
+    </footer>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

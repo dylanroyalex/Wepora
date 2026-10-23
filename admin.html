@@ -1,0 +1,2725 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Panel de administración de Wepora."
+    >
+    
+    <link rel="icon" type="image/ico" href="img/favicon.ico">
+
+    <title>Administración | Wepora</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="img/favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="estilos.css"
+    >
+
+    <style>
+
+        /* =====================================
+           LOGIN
+        ====================================== */
+
+        .admin-login {
+
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px 20px;
+
+            background-color: var(--fondo-secundario);
+        }
+
+
+        .admin-login-contenido {
+
+            width: min(430px, 100%);
+
+            padding: 45px;
+
+            background-color: var(--fondo-tarjeta);
+
+            border: 1px solid var(--borde);
+        }
+
+
+        .admin-logo {
+
+            width: 120px;
+
+            margin: 0 auto 35px;
+        }
+
+
+        .admin-logo img {
+
+            width: 100%;
+
+            display: block;
+        }
+
+
+        .admin-login h1 {
+
+            margin-bottom: 10px;
+
+            text-align: center;
+
+            font-size: 2rem;
+        }
+
+
+        .admin-login-descripcion {
+
+            margin-bottom: 30px;
+
+            text-align: center;
+
+            color: var(--texto-secundario);
+
+            font-size: 0.9rem;
+        }
+
+
+        .admin-campo {
+
+            margin-bottom: 20px;
+        }
+
+
+        .admin-campo label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 0.75rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.1em;
+        }
+
+
+        .admin-campo input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid var(--borde);
+
+            background-color: var(--fondo);
+
+            color: var(--texto);
+
+            outline: none;
+
+            box-sizing: border-box;
+        }
+
+
+        .admin-campo input:focus {
+
+            border-color: var(--verde-principal);
+        }
+
+
+        .admin-login-boton {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: 0;
+
+            background-color: var(--verde-principal);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 0.78rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+        }
+
+
+        .admin-login-boton:hover {
+
+            background-color: var(--verde-vivo);
+        }
+
+
+        .admin-mensaje {
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            font-size: 0.85rem;
+        }
+
+
+        /* =====================================
+           PANEL ADMINISTRADOR
+        ====================================== */
+
+        .admin-panel {
+
+            display: none;
+
+            min-height: 100vh;
+
+            padding: 60px 8%;
+
+            background-color: var(--fondo);
+        }
+
+
+        .admin-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            padding-bottom: 35px;
+
+            margin-bottom: 45px;
+
+            border-bottom: 1px solid var(--borde);
+        }
+
+
+        .admin-header h1 {
+
+            margin: 0;
+
+            font-size: clamp(2rem, 4vw, 3.2rem);
+        }
+
+.admin-controles-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.admin-boton-tema {
+
+    width: 44px;
+
+    height: 44px;
+
+    padding: 0;
+
+    border: 1px solid var(--borde);
+
+    background-color: transparent;
+
+    color: var(--texto);
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.admin-boton-tema:hover {
+
+    background-color: var(--verde-principal);
+
+    color: white;
+
+    border-color: var(--verde-principal);
+}
+        .admin-boton-secundario {
+
+            padding: 13px 22px;
+
+            border: 1px solid var(--verde-principal);
+
+            background: transparent;
+
+            color: var(--texto);
+
+            cursor: pointer;
+
+            font-size: 0.72rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.1em;
+
+            transition:
+                background-color 0.3s ease,
+                color 0.3s ease;
+        }
+
+
+        .admin-boton-secundario:hover {
+
+            background-color: var(--verde-principal);
+
+            color: white;
+        }
+
+```css
+/* =====================================
+   BÚSQUEDA DE PRODUCTOS
+===================================== */
+
+.admin-busqueda {
+    margin-bottom: 25px;
+}
+
+.admin-busqueda input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 18px;
+    border: 1px solid var(--borde);
+    background-color: var(--fondo-tarjeta);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.3s ease,
+                background-color 0.3s ease;
+}
+
+.admin-busqueda input::placeholder {
+    color: var(--texto-secundario);
+}
+
+.admin-busqueda input:focus {
+    border-color: var(--verde-principal);
+}
+
+.admin-filtros {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: stretch;
+}
+
+.admin-filtros .admin-busqueda {
+    margin-bottom: 0;
+}
+
+#filtroProductos {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 18px;
+    border: 1px solid var(--borde);
+    border-radius: 2px;
+    background-color: var(--fondo-secundario);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease,
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+#filtroProductos:hover {
+    border-color: var(--verde-principal);
+}
+
+#filtroProductos:focus {
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 0 2px rgba(0, 153, 117, 0.12);
+}
+
+#filtroProductos option {
+    background-color: var(--fondo-tarjeta);
+    color: var(--texto);
+}
+
+@media (max-width: 600px) {
+    .admin-filtros {
+        grid-template-columns: 1fr;
+    }
+}
+```
+        /* =====================================
+           SECCIÓN PRODUCTOS
+        ====================================== */
+
+        .admin-productos {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+        }
+
+
+        .admin-seccion-header {
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .admin-seccion-header h2 {
+
+            margin: 0 0 8px;
+
+            font-size: 1.5rem;
+        }
+
+
+        .admin-seccion-header p {
+
+            margin: 0;
+
+            color: var(--texto-secundario);
+
+            font-size: 0.9rem;
+        }
+
+
+        .admin-boton-principal {
+
+            flex-shrink: 0;
+
+            padding: 14px 22px;
+
+            border: 0;
+
+            background-color: var(--verde-principal);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 0.72rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+
+            transition:
+                background-color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .admin-boton-principal:hover {
+
+            background-color: var(--verde-vivo);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================
+           LISTA DE PRODUCTOS
+        ====================================== */
+
+        .lista-productos-admin {
+
+            display: grid;
+
+            gap: 20px;
+        }
+
+
+        .admin-cargando {
+
+            padding: 50px;
+
+            text-align: center;
+
+            color: var(--texto-secundario);
+        }
+
+
+        .producto-admin {
+
+            display: grid;
+
+            grid-template-columns: 150px 1fr auto;
+
+            align-items: center;
+
+            gap: 25px;
+
+            padding: 20px;
+
+            background-color: var(--fondo-tarjeta);
+
+            border: 1px solid var(--borde);
+        }
+
+
+        .producto-admin-imagen {
+
+            width: 150px;
+
+            height: 150px;
+
+            overflow: hidden;
+
+            background-color: var(--fondo-secundario);
+        }
+
+
+        .producto-admin-imagen img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .producto-admin-info {
+
+            min-width: 0;
+        }
+
+
+        .producto-admin-categoria {
+
+            display: inline-block;
+
+            margin-bottom: 8px;
+
+            font-size: 0.65rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+
+            color: var(--verde-principal);
+        }
+
+
+        .producto-admin-info h3 {
+
+            margin: 0 0 8px;
+
+            font-size: 1.25rem;
+        }
+
+
+        .producto-admin-precio {
+
+            margin: 0 0 10px;
+
+            font-size: 1rem;
+
+            font-weight: 700;
+        }
+
+
+        .producto-admin-descripcion {
+
+            margin: 0 0 12px;
+
+            color: var(--texto-secundario);
+
+            font-size: 0.85rem;
+
+            line-height: 1.6;
+        }
+
+
+        .producto-admin-estado {
+
+            margin: 0;
+
+            font-size: 0.75rem;
+
+            color: var(--texto-secundario);
+        }
+
+
+        .producto-admin-estado strong {
+
+            color: var(--verde-principal);
+        }
+
+
+        .producto-admin-acciones {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+            min-width: 110px;
+        }
+
+
+        .producto-admin-acciones button {
+
+            padding: 11px 15px;
+
+            cursor: pointer;
+
+            font-size: 0.68rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .admin-boton-editar {
+
+            border: 1px solid var(--verde-principal);
+
+            background: transparent;
+
+            color: var(--texto);
+        }
+
+
+        .admin-boton-editar:hover {
+
+            background-color: var(--verde-principal);
+
+            color: white;
+        }
+
+
+        .admin-boton-eliminar {
+
+            border: 1px solid #a33;
+
+            background: transparent;
+
+            color: #a33;
+        }
+
+
+        .admin-boton-eliminar:hover {
+
+            background-color: #a33;
+
+            color: white;
+        }
+
+
+        /* =====================================
+           RESPONSIVE
+        ====================================== */
+
+        @media (max-width: 800px) {
+
+            .admin-panel {
+
+                padding: 40px 5%;
+            }
+
+
+            .admin-header {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+
+            .admin-seccion-header {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+
+            .producto-admin {
+
+                grid-template-columns: 100px 1fr;
+            }
+
+
+            .producto-admin-imagen {
+
+                width: 100px;
+
+                height: 100px;
+            }
+
+
+            .producto-admin-acciones {
+
+                grid-column: 1 / -1;
+
+                flex-direction: row;
+            }
+
+
+            .producto-admin-acciones button {
+
+                flex: 1;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .admin-login-contenido {
+
+                padding: 30px 25px;
+            }
+
+
+            .producto-admin {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .producto-admin-imagen {
+
+                width: 100%;
+
+                height: 220px;
+            }
+
+        }
+		.producto-admin-stock {
+
+    margin: 8px 0 0;
+
+    font-size: 0.75rem;
+
+    color: var(--texto-secundario);
+}
+
+
+.producto-admin-stock strong {
+
+    color: var(--texto);
+
+    font-weight: 700;
+}
+.admin-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+
+.admin-modal.activo {
+
+    display: flex;
+}
+
+
+.admin-modal-contenido {
+
+    width: min(600px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    background-color: var(--fondo-tarjeta);
+
+    border: 1px solid var(--borde);
+}
+
+
+.admin-modal-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--borde);
+}
+
+
+.admin-modal-header h2 {
+
+    margin: 0;
+
+    font-size: 1.5rem;
+}
+
+
+.admin-modal-cerrar {
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--texto);
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+}
+
+
+.admin-modal-cerrar:hover {
+
+    color: var(--verde-principal);
+}
+
+
+.admin-campo textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    border: 1px solid var(--borde);
+
+    background-color: var(--fondo);
+
+    color: var(--texto);
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+
+.admin-campo textarea:focus {
+
+    border-color: var(--verde-principal);
+}
+
+
+.admin-checkbox label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+}
+
+
+.admin-checkbox input {
+
+    width: auto;
+}
+
+
+.admin-modal-acciones {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+
+@media (max-width: 500px) {
+
+    .admin-modal-contenido {
+
+        padding: 25px;
+    }
+
+
+    .admin-modal-acciones {
+
+        flex-direction: column;
+    }
+
+
+    .admin-modal-acciones button {
+
+        width: 100%;
+    }
+
+}
+/* =====================================
+   MODO OSCURO
+===================================== */
+
+body.modo-oscuro {
+
+    --fondo: #101412;
+    --fondo-secundario: #161c19;
+    --fondo-tarjeta: #1b221f;
+    --fondo-verde-suave: #18251f;
+    --fondo-crema: #191d1a;
+
+    --texto: #f2f5f3;
+    --texto-secundario: #aeb8b3;
+
+    --borde: #303a35;
+
+    --dorado: #d6bd7a;
+    --dorado-suave: #b89b5e;
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         LOGIN ADMINISTRADOR
+    ====================================== -->
+
+    <main
+        class="admin-login"
+        id="adminLogin"
+    >
+
+        <div class="admin-login-contenido">
+
+            <div class="admin-logo">
+
+                <img
+                    src="img/logo2.png"
+                    alt="Wepora"
+                >
+
+            </div>
+
+
+            <h1>
+                ADMINISTRACIÓN
+            </h1>
+
+
+            <p class="admin-login-descripcion">
+
+                Inicia sesión para administrar Wepora.
+
+            </p>
+
+
+            <form id="formularioLogin">
+
+
+                <div class="admin-campo">
+
+                    <label for="adminEmail">
+                        CORREO
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="adminEmail"
+                        placeholder="Correo del administrador"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="admin-campo">
+
+                    <label for="adminPassword">
+                        CONTRASEÑA
+                    </label>
+
+
+                    <input
+                        type="password"
+                        id="adminPassword"
+                        placeholder="Contraseña"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="admin-login-boton"
+                >
+                    INICIAR SESIÓN
+                </button>
+
+
+            </form>
+
+
+            <p
+                class="admin-mensaje"
+                id="adminMensaje"
+            ></p>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================
+         PANEL ADMINISTRADOR
+    ====================================== -->
+
+    <main
+        class="admin-panel"
+        id="adminPanel"
+    >
+
+
+        <header class="admin-header">
+
+
+            <div>
+
+                <p class="etiqueta">
+                    WEPORA
+                </p>
+
+
+                <h1>
+                    ADMINISTRACIÓN
+                </h1>
+
+            </div>
+
+
+            <div class="admin-controles-header">
+
+    <button
+        id="botonTemaAdmin"
+        class="admin-boton-tema"
+        type="button"
+        aria-label="Cambiar modo de color"
+        title="Cambiar modo de color"
+    >
+        ☾
+    </button>
+
+    <button
+        id="cerrarSesion"
+        class="admin-boton-secundario"
+    >
+        CERRAR SESIÓN
+    </button>
+
+</div>
+
+
+        </header>
+
+
+
+        <section class="admin-productos">
+
+
+            <div class="admin-seccion-header">
+
+
+                <div>
+
+                    <h2>
+                        PRODUCTOS
+                    </h2>
+
+
+                    <p>
+                        Administra las piezas que aparecen
+                        en el catálogo de Wepora.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="agregarProducto"
+                    class="admin-boton-principal"
+                >
+                    + AGREGAR PRODUCTO
+                </button>
+
+
+            </div>
+
+
+<div class="admin-filtros">
+
+    <div class="admin-busqueda">
+
+        <input
+            type="search"
+            id="buscarProducto"
+            placeholder="Buscar producto..."
+            aria-label="Buscar producto"
+        >
+
+    </div>
+
+
+    <select
+        id="filtroProductos"
+        aria-label="Filtrar productos"
+    >
+
+        <option value="todos">
+            TODOS
+        </option>
+
+        <option value="disponibles">
+            DISPONIBLES
+        </option>
+
+        <option value="ocultos">
+            OCULTOS
+        </option>
+
+        <option value="agotados">
+            AGOTADOS
+        </option>
+
+    </select>
+
+</div>
+
+
+
+<div
+    id="listaProductos"
+    class="lista-productos-admin"
+>
+
+                <p class="admin-cargando">
+                    Cargando productos...
+                </p>
+
+            </div>
+
+
+        </section>
+		
+<!-- =====================================
+     MODAL CONFIRMAR ELIMINACIÓN
+====================================== -->
+
+<div
+    class="admin-modal"
+    id="modalConfirmarEliminar"
+>
+
+    <div class="admin-modal-contenido">
+
+        <div class="admin-modal-header">
+
+            <div>
+
+                <p class="etiqueta">
+                    WEPORA
+                </p>
+
+                <h2>
+                    ELIMINAR PRODUCTO
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                id="cerrarModalEliminar"
+                class="admin-modal-cerrar"
+            >
+                ✕
+            </button>
+
+        </div>
+
+        <p
+            style="
+                margin: 0;
+                color: var(--texto-secundario);
+                line-height: 1.7;
+            "
+        >
+            ¿Quieres eliminar esta pieza del catálogo?
+            Esta acción no se puede deshacer.
+        </p>
+
+        <div class="admin-modal-acciones">
+
+            <button
+                type="button"
+                id="cancelarEliminacion"
+                class="admin-boton-secundario"
+            >
+                CANCELAR
+            </button>
+
+            <button
+                type="button"
+                id="confirmarEliminacion"
+                class="admin-boton-principal"
+                style="background-color: #8f4b4b;"
+            >
+                ELIMINAR PRODUCTO
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================
+     MODAL EDITAR PRODUCTO
+====================================== -->
+
+<div
+    class="admin-modal"
+    id="modalEditarProducto"
+>
+
+    <div class="admin-modal-contenido">
+
+        <div class="admin-modal-header">
+
+            <div>
+
+                <p class="etiqueta">
+                    WEPORA
+                </p>
+
+                <h2>
+                    EDITAR PRODUCTO
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                id="cerrarModalEditar"
+                class="admin-modal-cerrar"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <form id="formularioEditarProducto">
+
+
+            <input
+                type="hidden"
+                id="editarId"
+            >
+
+
+            <div class="admin-campo">
+
+                <label for="editarNombre">
+                    NOMBRE
+                </label>
+
+                <input
+                    type="text"
+                    id="editarNombre"
+                    required
+                >
+
+            </div>
+
+
+            <div class="admin-campo">
+
+                <label for="editarPrecio">
+                    PRECIO
+                </label>
+
+                <input
+                    type="number"
+                    id="editarPrecio"
+                    min="0"
+                    required
+                >
+
+            </div>
+
+
+            <div class="admin-campo">
+
+                <label for="editarCategoria">
+                    CATEGORÍA
+                </label>
+
+                <input
+                    type="text"
+                    id="editarCategoria"
+                    required
+                >
+
+            </div>
+
+
+            <div class="admin-campo">
+
+                <label for="editarDescripcion">
+                    DESCRIPCIÓN
+                </label>
+
+                <textarea
+                    id="editarDescripcion"
+                    rows="5"
+                ></textarea>
+
+            </div>
+			
+			<div class="admin-campo">
+    <label for="editarImagen">IMAGEN DEL PRODUCTO</label>
+
+    <input
+        type="file"
+        id="editarImagen"
+        accept="image/png, image/jpeg, image/webp"
+    >
+
+    <small id="nombreImagenSeleccionada">
+        Selecciona una imagen para el producto.
+    </small>
+
+    <div
+        id="vistaPreviaImagen"
+        style="
+            display: none;
+            margin-top: 15px;
+        "
+    >
+        <img
+            id="imagenPrevia"
+            src=""
+            alt="Vista previa de la imagen"
+            style="
+                width: 180px;
+                height: 180px;
+                object-fit: cover;
+                display: block;
+                border: 1px solid var(--borde);
+            "
+        >
+    </div>
+</div>
+
+
+            <div class="admin-campo">
+
+                <label for="editarStock">
+                    STOCK
+                </label>
+
+                <input
+                    type="number"
+                    id="editarStock"
+                    min="0"
+                    required
+                >
+
+            </div>
+
+
+            <div class="admin-campo admin-checkbox">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="editarDisponible"
+                    >
+
+                    PRODUCTO DISPONIBLE
+
+                </label>
+
+            </div>
+
+
+            <div class="admin-modal-acciones">
+
+                <button
+                    type="button"
+                    id="cancelarEdicion"
+                    class="admin-boton-secundario"
+                >
+                    CANCELAR
+                </button>
+
+                <button
+                    type="submit"
+                    class="admin-boton-principal"
+                >
+                    GUARDAR CAMBIOS
+                </button>
+
+            </div>
+
+
+            <p
+                id="mensajeEdicion"
+                class="admin-mensaje"
+            ></p>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+    </main>
+
+
+
+    <!-- =====================================
+         SUPABASE
+    ====================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+
+    <script>
+
+
+        /* =====================================
+           ELEMENTOS
+        ====================================== */
+
+        const formularioLogin =
+            document.getElementById(
+                "formularioLogin"
+            );
+
+
+        const adminMensaje =
+            document.getElementById(
+                "adminMensaje"
+            );
+
+
+        const adminLogin =
+            document.getElementById(
+                "adminLogin"
+            );
+
+
+        const adminPanel =
+            document.getElementById(
+                "adminPanel"
+            );
+
+
+        const listaProductos =
+            document.getElementById(
+                "listaProductos"
+            );
+	    const buscarProducto =
+            document.getElementById(
+                "buscarProducto"
+            );
+        const filtroProductos =
+            document.getElementById(
+               "filtroProductos"
+            );
+
+
+        /* =====================================
+           CARGAR PRODUCTOS
+        ====================================== */
+
+        async function cargarProductosAdmin() {
+
+            listaProductos.innerHTML =
+                '<p class="admin-cargando">Cargando productos...</p>';
+
+
+            const { data, error } =
+                await supabaseClient
+                    .from("productos")
+                    .select("*")
+                    .order(
+                        "orden",
+                        {
+                            ascending: true
+                        }
+                    )
+                    .order(
+                        "created_at",
+                        {
+                            ascending: true
+                        }
+                    );
+
+
+            if (error) {
+
+                console.error(
+                    "Error cargando productos:",
+                    error
+                );
+
+
+                listaProductos.innerHTML = `
+                    <p class="admin-cargando">
+                        Error al cargar los productos.
+                    </p>
+                `;
+
+                return;
+            }
+
+
+            if (
+                !data ||
+                data.length === 0
+            ) {
+
+                listaProductos.innerHTML = `
+                    <p class="admin-cargando">
+                        No hay productos registrados.
+                    </p>
+                `;
+
+                return;
+            }
+
+
+            listaProductos.innerHTML =
+                data.map(
+                    producto => {
+
+
+                        const precio =
+                            Number(
+                                producto.precio
+                            ).toLocaleString(
+                                "es-CO"
+                            );
+
+
+                        return `
+
+                            <article
+                                class="producto-admin"
+                            >
+
+
+                                <div
+                                    class="producto-admin-imagen"
+                                >
+
+                                    <img
+                                        src="${
+                                            producto.imagen ||
+                                            "img/logo2.png"
+                                        }"
+                                        alt="${
+                                            producto.nombre
+                                        }"
+                                    >
+
+                                </div>
+
+
+
+                                <div
+                                    class="producto-admin-info"
+                                >
+
+
+                                    <span
+                                        class="producto-admin-categoria"
+                                    >
+                                        ${
+                                            producto.categoria
+                                        }
+                                    </span>
+
+
+                                    <h3>
+                                        ${
+                                            producto.nombre
+                                        }
+                                    </h3>
+
+
+                                    <p
+                                        class="producto-admin-precio"
+                                    >
+                                        $${precio} COP
+                                    </p>
+
+
+                                    <p
+                                        class="producto-admin-descripcion"
+                                    >
+                                        ${
+                                            producto.descripcion ||
+                                            "Sin descripción"
+                                        }
+                                    </p>
+
+
+                                    <p class="producto-admin-estado">
+
+                                Estado:
+
+                                    <strong>
+                            ${
+                                    producto.disponible
+                                ? "Disponible"
+                                : "Oculto"
+                            }
+                             </strong>
+
+                            </p>
+
+                           <p class="producto-admin-stock">
+
+                    Stock:
+
+                    <strong>
+        ${
+            Number(producto.stock) === 0
+                ? "Agotado"
+                : `${producto.stock} ${
+                    Number(producto.stock) === 1
+                        ? "unidad"
+                        : "unidades"
+                }`
+        }
+                </strong>
+
+                            </p>
+
+                                </div>
+
+
+
+                                <div
+                                    class="producto-admin-acciones"
+                                >
+
+
+                                    <button
+                                        class="admin-boton-editar"
+                                        data-id="${
+                                            producto.id
+                                        }"
+                                        type="button"
+                                    >
+                                        EDITAR
+                                    </button>
+
+
+                                    <button
+                                        class="admin-boton-eliminar"
+                                        data-id="${
+                                            producto.id
+                                        }"
+                                        type="button"
+                                    >
+                                        ELIMINAR
+                                    </button>
+
+
+                                </div>
+
+
+                            </article>
+
+                        `;
+
+                    }
+                ).join("");
+
+        }
+		
+
+/* =====================================
+   BUSCAR Y FILTRAR PRODUCTOS
+====================================== */
+
+function aplicarFiltrosProductos() {
+
+    const texto = buscarProducto.value
+        .toLowerCase()
+        .trim();
+
+    const filtro = filtroProductos.value;
+
+    const productos = document.querySelectorAll(
+        ".producto-admin"
+    );
+
+    productos.forEach(function (producto) {
+
+        const contenido = producto.textContent
+            .toLowerCase();
+
+        const coincideTexto =
+            contenido.includes(texto);
+
+        const estado = producto
+            .querySelector(".producto-admin-estado strong")
+            ?.textContent
+            .trim()
+            .toLowerCase();
+
+        const stockTexto = producto
+            .querySelector(".producto-admin-stock strong")
+            ?.textContent
+            .trim()
+            .toLowerCase();
+
+        let coincideFiltro = true;
+
+        if (filtro === "disponibles") {
+            coincideFiltro = estado === "disponible";
+        }
+
+        if (filtro === "ocultos") {
+            coincideFiltro = estado === "oculto";
+        }
+
+        if (filtro === "agotados") {
+            coincideFiltro = stockTexto === "agotado";
+        }
+
+        producto.style.display =
+            coincideTexto && coincideFiltro ? "" : "none";
+
+    });
+}
+
+buscarProducto.addEventListener(
+    "input",
+    aplicarFiltrosProductos
+);
+
+filtroProductos.addEventListener(
+    "change",
+    aplicarFiltrosProductos
+);
+
+// =====================================
+// AGREGAR PRODUCTO
+// =====================================
+
+document
+    .getElementById("agregarProducto")
+    .addEventListener(
+        "click",
+        function () {
+
+            document.getElementById("editarId").value = "";
+
+            document.getElementById("editarNombre").value = "";
+
+            document.getElementById("editarPrecio").value = "";
+
+            document.getElementById("editarCategoria").value = "PULSERA";
+
+            document.getElementById("editarDescripcion").value = "";
+
+            document.getElementById("editarStock").value = 0;
+
+            document.getElementById("editarDisponible").checked = true;
+
+            document.getElementById("mensajeEdicion").textContent = "";
+
+            document.querySelector(
+                "#modalEditarProducto .admin-modal-header h2"
+            ).textContent = "NUEVO PRODUCTO";
+
+            document.querySelector(
+                "#formularioEditarProducto button[type='submit']"
+            ).textContent = "AGREGAR PRODUCTO";
+
+            document
+                .getElementById("modalEditarProducto")
+                .classList.add("activo");
+
+        }
+    );
+	document
+    .getElementById("editarImagen")
+    .addEventListener(
+        "change",
+        function () {
+
+            const archivo =
+                this.files[0];
+
+            const vistaPrevia =
+                document.getElementById(
+                    "vistaPreviaImagen"
+                );
+
+            const imagenPrevia =
+                document.getElementById(
+                    "imagenPrevia"
+                );
+
+            const nombreImagen =
+                document.getElementById(
+                    "nombreImagenSeleccionada"
+                );
+
+            if (!archivo) {
+                vistaPrevia.style.display =
+                    "none";
+
+                imagenPrevia.src = "";
+
+                nombreImagen.textContent =
+                    "Selecciona una imagen para el producto.";
+
+                return;
+            }
+
+            const url =
+                URL.createObjectURL(
+                    archivo
+                );
+
+            imagenPrevia.src = url;
+
+            vistaPrevia.style.display =
+                "block";
+
+            nombreImagen.textContent =
+                archivo.name;
+        }
+    );
+
+// =====================================
+// EDITAR PRODUCTO
+// =====================================
+
+async function abrirEditorProducto(id) {
+
+    const { data: producto, error } =
+        await supabaseClient
+            .from("productos")
+            .select("*")
+            .eq("id", id)
+            .single();
+
+
+    if (error) {
+
+        console.error(
+            "Error cargando producto:",
+            error
+        );
+
+        alert("No se pudo cargar el producto.");
+
+        return;
+    }
+
+
+    document.getElementById("editarId").value =
+        producto.id;
+
+    document.getElementById("editarNombre").value =
+        producto.nombre || "";
+
+    document.getElementById("editarPrecio").value =
+        producto.precio || 0;
+
+    document.getElementById("editarCategoria").value =
+        producto.categoria || "";
+
+    document.getElementById("editarDescripcion").value =
+        producto.descripcion || "";
+
+    document.getElementById("editarStock").value =
+        producto.stock || 0;
+
+    document.getElementById("editarDisponible").checked =
+        producto.disponible;
+    
+	document.getElementById("editarImagen").dataset.imagenActual =
+    producto.imagen || "";
+
+    document
+        .getElementById("mensajeEdicion")
+        .textContent = "";
+
+
+    document
+        .getElementById("modalEditarProducto")
+        .classList.add("activo");
+
+}
+
+// =====================================
+// MOSTRAR CONFIRMACIÓN DE ELIMINACIÓN
+// =====================================
+
+function mostrarConfirmacionEliminar() {
+
+    return new Promise(function (resolver) {
+
+        const modal =
+            document.getElementById(
+                "modalConfirmarEliminar"
+            );
+
+        const botonConfirmar =
+            document.getElementById(
+                "confirmarEliminacion"
+            );
+
+        const botonCancelar =
+            document.getElementById(
+                "cancelarEliminacion"
+            );
+
+        const botonCerrar =
+            document.getElementById(
+                "cerrarModalEliminar"
+            );
+
+
+        function cerrar(resultado) {
+
+            modal.classList.remove("activo");
+
+            botonConfirmar.onclick = null;
+            botonCancelar.onclick = null;
+            botonCerrar.onclick = null;
+
+            resolver(resultado);
+
+        }
+
+
+        botonConfirmar.onclick =
+            function () {
+
+                cerrar(true);
+
+            };
+
+
+        botonCancelar.onclick =
+            function () {
+
+                cerrar(false);
+
+            };
+
+
+        botonCerrar.onclick =
+            function () {
+
+                cerrar(false);
+
+            };
+
+
+        modal.classList.add("activo");
+
+    });
+
+}
+
+
+// =====================================
+// CLIC EN EDITAR / ELIMINAR
+// =====================================
+
+document
+    .getElementById("listaProductos")
+    .addEventListener(
+        "click",
+        async function (evento) {
+
+
+            // =====================================
+            // EDITAR
+            // =====================================
+
+            const botonEditar =
+                evento.target.closest(
+                    ".admin-boton-editar"
+                );
+
+
+            if (botonEditar) {
+
+                const id =
+                    botonEditar.dataset.id;
+
+                abrirEditorProducto(id);
+
+                return;
+
+            }
+
+
+            // =====================================
+            // ELIMINAR
+            // =====================================
+
+            const botonEliminar =
+                evento.target.closest(
+                    ".admin-boton-eliminar"
+                );
+
+
+            if (!botonEliminar) {
+
+                return;
+
+            }
+
+
+            const id =
+                botonEliminar.dataset.id;
+
+
+            const confirmar =
+                await mostrarConfirmacionEliminar();
+
+
+            if (!confirmar) {
+
+                return;
+
+            }
+
+
+            botonEliminar.disabled = true;
+
+            botonEliminar.textContent =
+                "ELIMINANDO...";
+
+
+            const {
+                error
+            } =
+                await supabaseClient
+                    .from("productos")
+                    .delete()
+                    .eq("id", id);
+
+
+            if (error) {
+
+                console.error(
+                    "Error eliminando producto:",
+                    error
+                );
+
+
+                alert(
+                    "No se pudo eliminar el producto."
+                );
+
+
+                botonEliminar.disabled = false;
+
+                botonEliminar.textContent =
+                    "ELIMINAR";
+
+                return;
+
+            }
+
+
+            await cargarProductosAdmin();
+
+        }
+    );
+
+
+// =====================================
+// CERRAR MODAL
+// =====================================
+
+function cerrarEditorProducto() {
+
+    // Limpiar imagen seleccionada
+    document
+        .getElementById("editarImagen")
+        .value = "";
+
+    // Ocultar vista previa
+    document
+        .getElementById("vistaPreviaImagen")
+        .style.display = "none";
+
+    // Limpiar imagen mostrada
+    document
+        .getElementById("imagenPrevia")
+        .src = "";
+
+    // Restaurar texto
+    document
+        .getElementById("nombreImagenSeleccionada")
+        .textContent =
+            "Selecciona una imagen para el producto.";
+
+    // Cerrar modal
+    document
+        .getElementById("modalEditarProducto")
+        .classList.remove("activo");
+
+}
+
+document
+    .getElementById("cerrarModalEditar")
+    .addEventListener(
+        "click",
+        cerrarEditorProducto
+    );
+
+
+document
+    .getElementById("cancelarEdicion")
+    .addEventListener(
+        "click",
+        cerrarEditorProducto
+    );
+
+
+// =====================================
+// GUARDAR CAMBIOS DEL PRODUCTO
+// =====================================
+
+document
+    .getElementById("formularioEditarProducto")
+    .addEventListener(
+        "submit",
+        async function (evento) {
+
+            evento.preventDefault();
+
+
+            const id =
+                document.getElementById(
+                    "editarId"
+                ).value;
+
+
+            const nombre =
+                document.getElementById(
+                    "editarNombre"
+                ).value.trim();
+
+
+            const precio =
+                Number(
+                    document.getElementById(
+                        "editarPrecio"
+                    ).value
+                );
+
+
+            const categoria =
+                document.getElementById(
+                    "editarCategoria"
+                ).value.trim();
+
+
+            const descripcion =
+                document.getElementById(
+                    "editarDescripcion"
+                ).value.trim();
+
+
+            const stock =
+                Number(
+                    document.getElementById(
+                        "editarStock"
+                    ).value
+                );
+
+
+            const disponible =
+                document.getElementById(
+                    "editarDisponible"
+                ).checked;
+
+
+            const mensaje =
+                document.getElementById(
+                    "mensajeEdicion"
+                );
+				const archivoImagen =
+                document.getElementById("editarImagen").files[0];
+
+
+            mensaje.textContent =
+                "Guardando cambios...";
+
+
+let error;
+
+if (id) {
+
+    // =====================================
+    // EDITAR PRODUCTO EXISTENTE
+    // =====================================
+
+    let datosActualizacion = {
+        nombre: nombre,
+        precio: precio,
+        categoria: categoria,
+        descripcion: descripcion,
+        stock: stock,
+        disponible: disponible,
+        updated_at: new Date().toISOString()
+    };
+
+    // Si se seleccionó una nueva imagen,
+    // la subimos a Storage
+    if (archivoImagen) {
+
+        const extension =
+            archivoImagen.name
+                .split(".")
+                .pop()
+                .toLowerCase();
+
+        const nombreArchivo =
+            `${crypto.randomUUID()}.${extension}`;
+
+        const { error: errorSubida } =
+            await supabaseClient
+                .storage
+                .from("productos")
+                .upload(
+                    nombreArchivo,
+                    archivoImagen
+                );
+
+        if (errorSubida) {
+
+            console.error(
+                "Error subiendo imagen:",
+                errorSubida
+            );
+
+            mensaje.textContent =
+                "No se pudo subir la nueva imagen.";
+
+            return;
+        }
+
+        const { data: urlImagen } =
+            supabaseClient
+                .storage
+                .from("productos")
+                .getPublicUrl(
+                    nombreArchivo
+                );
+
+        datosActualizacion.imagen =
+            urlImagen.publicUrl;
+// =====================================
+// ELIMINAR IMAGEN ANTERIOR
+// =====================================
+
+const imagenAnterior =
+    document
+        .getElementById("editarImagen")
+        .dataset.imagenActual;
+
+if (
+    imagenAnterior &&
+    imagenAnterior.includes(
+        "/storage/v1/object/public/productos/"
+    )
+) {
+
+    const rutaAnterior =
+        imagenAnterior.split(
+            "/storage/v1/object/public/productos/"
+        )[1];
+
+    if (rutaAnterior) {
+
+        const { error: errorEliminacion } =
+            await supabaseClient
+                .storage
+                .from("productos")
+                .remove([
+                    rutaAnterior
+                ]);
+
+        if (errorEliminacion) {
+
+            console.error(
+                "No se pudo eliminar la imagen anterior:",
+                errorEliminacion
+            );
+        }
+    }
+}
+    }
+
+    const resultado =
+        await supabaseClient
+            .from("productos")
+            .update(datosActualizacion)
+            .eq("id", id);
+
+    error = resultado.error;
+
+} else {
+    // =====================================
+    // CREAR NUEVO PRODUCTO
+    // =====================================
+
+    let imagenProducto = "img/logo2.png";
+
+    if (archivoImagen) {
+
+        const extension =
+            archivoImagen.name
+                .split(".")
+                .pop()
+                .toLowerCase();
+
+        const nombreArchivo =
+            `${crypto.randomUUID()}.${extension}`;
+
+        const { error: errorSubida } =
+            await supabaseClient
+                .storage
+                .from("productos")
+                .upload(
+                    nombreArchivo,
+                    archivoImagen
+                );
+
+        if (errorSubida) {
+
+            console.error(
+                "Error subiendo imagen:",
+                errorSubida
+            );
+
+            mensaje.textContent =
+                "No se pudo subir la imagen.";
+
+            return;
+        }
+
+        const { data: urlImagen } =
+            supabaseClient
+                .storage
+                .from("productos")
+                .getPublicUrl(
+                    nombreArchivo
+                );
+
+        imagenProducto =
+            urlImagen.publicUrl;
+    }
+
+    const resultado =
+        await supabaseClient
+            .from("productos")
+            .insert({
+                nombre: nombre,
+                precio: precio,
+                categoria: categoria,
+                descripcion: descripcion,
+                stock: stock,
+                disponible: disponible,
+                imagen: imagenProducto,
+                orden: 0
+            });
+
+    error = resultado.error;
+
+}
+
+
+            if (error) {
+
+                console.error(
+                    "Error actualizando producto:",
+                    error
+                );
+
+
+                mensaje.textContent =
+                    "No se pudieron guardar los cambios.";
+
+                return;
+
+            }
+
+
+            mensaje.textContent =
+                "Cambios guardados correctamente.";
+
+
+            await cargarProductosAdmin();
+
+
+            setTimeout(
+                function () {
+
+                    cerrarEditorProducto();
+
+                },
+                700
+            );
+
+        }
+    );
+
+        /* =====================================
+           COMPROBAR SI EL USUARIO ES ADMIN
+        ====================================== */
+
+        async function comprobarAdministrador() {
+
+            const {
+                data: {
+                    user
+                }
+            } =
+                await supabaseClient.auth.getUser();
+
+
+            if (!user) {
+
+                return false;
+
+            }
+
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient.rpc(
+                    "es_admin"
+                );
+
+
+            if (error) {
+
+                console.error(
+                    "Error verificando administrador:",
+                    error
+                );
+
+                return false;
+
+            }
+
+
+            return data === true;
+
+        }
+
+
+
+        /* =====================================
+           MOSTRAR PANEL
+        ====================================== */
+
+        async function mostrarPanelAdmin() {
+
+            const esAdministrador =
+                await comprobarAdministrador();
+
+
+            if (!esAdministrador) {
+
+                await supabaseClient.auth.signOut();
+
+
+                adminMensaje.textContent =
+                    "Esta cuenta no tiene permisos de administrador.";
+
+                return;
+
+            }
+
+
+            adminLogin.style.display =
+                "none";
+
+
+            adminPanel.style.display =
+                "block";
+
+
+            await cargarProductosAdmin();
+
+        }
+
+
+
+        /* =====================================
+           INICIAR SESIÓN
+        ====================================== */
+
+        formularioLogin.addEventListener(
+            "submit",
+            async function (evento) {
+
+
+                evento.preventDefault();
+
+
+                const email =
+                    document.getElementById(
+                        "adminEmail"
+                    ).value.trim();
+
+
+                const password =
+                    document.getElementById(
+                        "adminPassword"
+                    ).value;
+
+
+                adminMensaje.textContent =
+                    "Iniciando sesión...";
+
+
+                const {
+                    data,
+                    error
+                } =
+                    await supabaseClient.auth.signInWithPassword({
+
+                        email: email,
+
+                        password: password
+
+                    });
+
+
+                if (error) {
+
+                    console.error(
+                        "Error de inicio de sesión:",
+                        error
+                    );
+
+
+                    adminMensaje.textContent =
+                        "Correo o contraseña incorrectos.";
+
+
+                    return;
+
+                }
+
+
+                console.log(
+                    "Usuario autenticado:",
+                    data.user
+                );
+
+
+                await mostrarPanelAdmin();
+
+            }
+        );
+
+// =====================================
+// MODO CLARO / OSCURO
+// =====================================
+
+const botonTemaAdmin =
+    document.getElementById("botonTemaAdmin");
+
+botonTemaAdmin.addEventListener(
+    "click",
+    function () {
+
+        document.body.classList.toggle(
+            "modo-oscuro"
+        );
+
+        const modoOscuro =
+            document.body.classList.contains(
+                "modo-oscuro"
+            );
+
+        botonTemaAdmin.textContent =
+            modoOscuro ? "☀" : "☾";
+
+        localStorage.setItem(
+            "temaWepora",
+            modoOscuro ? "oscuro" : "claro"
+        );
+
+    }
+);
+
+const temaGuardado =
+    localStorage.getItem("temaWepora");
+
+if (temaGuardado === "oscuro") {
+
+    document.body.classList.add(
+        "modo-oscuro"
+    );
+
+    botonTemaAdmin.textContent = "☀";
+
+} else {
+
+    botonTemaAdmin.textContent = "☾";
+
+}
+
+        /* =====================================
+           CERRAR SESIÓN
+        ====================================== */
+
+        document
+            .getElementById(
+                "cerrarSesion"
+            )
+            .addEventListener(
+                "click",
+                async function () {
+
+
+                    await supabaseClient.auth.signOut();
+
+
+                    location.reload();
+
+                }
+            );
+
+
+
+        /* =====================================
+           COMPROBAR SESIÓN EXISTENTE
+        ====================================== */
+
+        async function comprobarSesionExistente() {
+
+            const {
+                data: {
+                    session
+                }
+            } =
+                await supabaseClient.auth.getSession();
+
+
+            if (!session) {
+
+                return;
+
+            }
+
+
+            await mostrarPanelAdmin();
+
+        }
+
+
+        comprobarSesionExistente();
+
+
+    </script>
+
+
+</body>
+
+</html>
