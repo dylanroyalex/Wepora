@@ -1630,12 +1630,28 @@ button {
 
     gap: 15px;
 }
-```css
+
 /* Logos de redes sociales en contacto */
+.contacto-botones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+}
+
 .contacto-botones .boton-red-social {
+    box-sizing: border-box;
     width: 52px;
+    min-width: 52px;
+    max-width: 52px;
     height: 52px;
+    min-height: 52px;
     padding: 0;
+    margin: 0;
+    flex: 0 0 52px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1650,6 +1666,7 @@ button {
 .contacto-botones .boton-red-social svg {
     width: 25px;
     height: 25px;
+    flex: 0 0 25px;
     display: block;
 }
 
@@ -1659,7 +1676,7 @@ button {
     border-color: var(--verde-principal);
     transform: translateY(-3px);
 }
-```
+
 
 /* =====================================
    VISOR DE IMÁGENES
