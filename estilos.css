@@ -1622,14 +1622,20 @@ button {
 }
 
 
+
 .contacto-botones {
-
     display: flex;
-
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-
-    gap: 15px;
+    gap: 14px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
+
 
 /* Logos de redes sociales en contacto */
 .contacto-botones {
