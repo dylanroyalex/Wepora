@@ -2095,12 +2095,23 @@ body.modo-oscuro .footer-line {
     }
 
 
+    
     .contacto-botones {
-
-        flex-direction: column;
-
-        align-items: stretch;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
     }
+
+    .contacto-botones .boton-red-social {
+        flex: 0 0 52px;
+        width: 52px;
+        min-width: 52px;
+        max-width: 52px;
+        height: 52px;
+    }
+
 
 
     .boton-principal,
